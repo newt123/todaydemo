@@ -1,0 +1,31 @@
+head     1.8973;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.8973
+date     2011.05.16.14.07.43;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.8973
+log
+@@
+text
+@<project name="dynatable" default="build" basedir=".">
+  <property name="sample.root" value="dynatable" />
+  <property name="sample.module" value="DynaTable" />
+  <property name="sample.path" value="src" />
+  <import file="../common.ant.xml" />
+  <!-- these are after the common.ant.xml so they have gwt.tools etc -->
+  <path id="sample.extraclasspath">
+    <pathelement location="${gwt.tools.lib}/javax/validation/validation-api-1.0.0.GA.jar" />
+  </path>
+</project>
+@

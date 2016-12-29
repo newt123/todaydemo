@@ -1,0 +1,26 @@
+head     1.12050;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.12050
+date     2011.11.02.15.07.48;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.12050
+log
+@@
+text
+@<project name="dynatable" default="build" basedir=".">
+  <property name="sample.root" value="dynatable" />
+  <property name="sample.module" value="DynaTable" />
+  <import file="../common.ant.xml" />
+</project>
+@

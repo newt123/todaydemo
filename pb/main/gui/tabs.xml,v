@@ -1,0 +1,22 @@
+head     1.874;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.874
+date     2011.02.08.19.49.27;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.874
+log
+@@
+text
+@
+<xml><tab>Platform</tab><tab>Language</tab><tab>Artifacts</tab></xml>@

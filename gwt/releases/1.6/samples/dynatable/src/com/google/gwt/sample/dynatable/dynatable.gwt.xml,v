@@ -1,0 +1,58 @@
+head     1.4774;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.4774
+date     2011.05.16.13.26.54;  author p4;  state Exp;
+branches ;
+next     1.4613;
+
+1.4613
+date     2011.05.16.13.28.39;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.4774
+log
+@@
+text
+@<!--                                                                        -->
+<!-- Copyright 2007 Google Inc.                                             -->
+<!-- Licensed under the Apache License, Version 2.0 (the "License"); you    -->
+<!-- may not use this file except in compliance with the License. You may   -->
+<!-- may obtain a copy of the License at                                    -->
+<!--                                                                        -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0                             -->
+<!--                                                                        -->
+<!-- Unless required by applicable law or agreed to in writing, software    -->
+<!-- distributed under the License is distributed on an "AS IS" BASIS,      -->
+<!-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or        -->
+<!-- implied. License for the specific language governing permissions and   -->
+<!-- limitations under the License.                                         -->
+
+<module rename-to="dynatable">
+	<inherits name='com.google.gwt.user.User' />
+	<entry-point class='com.google.gwt.sample.dynatable.client.DynaTable' />
+	<servlet path='/calendar' class='com.google.gwt.sample.dynatable.server.SchoolCalendarServiceImpl'/>
+</module>
+@
+
+
+1.4613
+log
+@@
+text
+@d18 1
+a18 4
+	<!--
+		Re-enable this when we have web.xml validation.
+		<servlet path='/calendar' class='com.google.gwt.sample.dynatable.server.SchoolCalendarServiceImpl'/>
+	-->
+@

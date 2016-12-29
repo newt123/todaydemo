@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+  <head>
+    <title>The Perforce Sample Depot</title>
+  </head>
+  <body>
+
+
+<!-- Content starts here -->
+<h1>The Perforce Sample Depot</h1>
+
+<p> The Perforce Sample Depot provides you with a working example of 
+a Perforce Server that can be used for testing or training. The Sample Depot 
+demonstrates a typical depot organization along with some sensible naming 
+conventions. It provides enough files and revision history to enable you 
+to perform interesting and meaningful SCM tasks. </p>
+
+<p>The Sample Depot contains several example projects, such as <strong>Jam</strong>, 
+a software build tool written in C. The Sample Depot is not, however, intended 
+to be a current archive of source code. For the latest Jam source code, see the 
+<a href="http://public.perforce.com/public/jam/index.html">Jam&nbsp;project</a> 
+in the 
+<a href="http://public.perforce.com/public/index.html">Perforce&nbsp;Public&nbsp;Depot.</a> </p>
+
+<p>The Sample Depot also contains several streams, showing the <strong>Jam</strong> product's most recent development and release efforts. These streams were branched from the original Jam codelines.  Other streams show new development for a product called <strong>PB</strong>, the <strong>Dynatable</strong> sample project from the Google Web Toolkit, and documents for an internal department.</p>
+
+<p> The Sample Depot demonstrates several methods for arranging your
+source code or Web development repository. Both the source code and Web
+development directories are organized to support a "mainline"
+development model. Perforce advocates use of a mainline model for 
+concurrent development. More information on the mainline model 
+can be found in white papers on the <a
+ href="http://www.perforce.com/">Perforce Web site</a>. In particular,
+see the <a href="http://www.perforce.com/perforce/bestpractices.html">High-level
+Best Practices in Software Configuration Management</a> and <a
+href="http://www.perforce.com/perforce/life.html">Software&nbsp;Life-Cycle&nbsp;
+Modeling</a> white papers. For further reference, see the book
+<a href="http://www.oreilly.com/catalog/practicalperforce/index.html">Practical&nbsp;Perforce</a>.</p>
+
+<a name="install"></a>
+
+<h2>Prerequisites</h2>
+	
+	<h3>Server</h3>
+	2011.1 or later version Perforce Server is required. To download Perforce for your platform, 
+	go to the Perforce 
+	<a href="http://www.perforce.com/perforce/loadprog.html">Downloads</a> page.
+	For instructions on how to install Perforce, see the 
+	<a href="http://www.perforce.com/perforce/demo/windows/windemo.html">Ten&nbsp;Minute&nbsp;Test&nbsp;Drive</a> 
+	page. 
+	
+<h2>Installing the Sample Depot</h2>
+
+To install and use the Sample Depot:
+<ol>
+<p>
+<li>Download the the Sample Depot from our 
+<a href="ftp://ftp.perforce.com/perforce/tools/">ftp site</a>. The Sample Depot
+is contained in a .zip file for Windows and a gzipped tar file for non-Windows platforms: <br>
+	<pre>
+	<a href="ftp://ftp.perforce.com/perforce/tools/sampledepot.zip">ftp://ftp.perforce.com/perforce/tools/sampledepot.zip</a></pre>
+        <pre>
+	<a href="ftp://ftp.perforce.com/perforce/tools/sampledepot.tar.gz">ftp://ftp.perforce.com/perforce/tools/sampledepot.tar.gz</a></pre>
+</li>
+
+<p>
+<li>Uncompress the <kbd>sampledepot.zip</kbd> file using a standard 
+compression utility such as <strong>unzip</strong> or <strong>WinZip</strong>. 
+For example, on Windows, select Start &gt; Program&nbsp;Files &gt; 
+Accessories &gt; Command&nbsp;Prompt from the menu. When the DOS command 
+shell appears, issue the following command:<br>
+	<pre>
+	cd C:\
+	unzip sampledepot.zip</pre>
+
+Again, if you don't have the <strong>unzip</strong> program on your computer, 
+use <strong><a href="http://www.winzip.com/downwz.htm">WinZip</a></strong> or 
+another compression utility that can extract .zip format files.
+<br>
+On non-Windows platforms, extract the package using:<br>
+<pre>
+gunzip sampledepot.tar.gz
+tar xf sampledepot.tar
+</pre>
+<p>
+When the file is uncompressed, it creates a 
+directory named <kbd>PerforceSample</kbd>. The <kbd>PerforceSample</kbd> 
+directory contains nine items:
+<ul>
+<table cellpadding=5>
+<tr><td><li><kbd>checkpoint</kbd></td> <td># a file containing Perforce metadata</td>
+<tr><td><li><kbd>checkpoint.md5</kbd></td> <td># checkpoint checksum</td>
+<tr><td><li><kbd>depot</kbd></td> <td># a directory containing Perforce archive files</td>
+<tr><td><li><kbd>gwt</kbd></td> <td># a directory containing Perforce archive files</td>
+<tr><td><li><kbd>gwt-streams</kbd></td> <td># a directory containing Perforce archive files</td>
+<tr><td><li><kbd>HR</kbd></td> <td># a directory containing Perforce archive files</td>
+<tr><td><li><kbd>jam</kbd></td> <td># a directory containing Perforce archive files</td>
+<tr><td><li><kbd>pb</kbd></td> <td># a directory containing Perforce archive files</td>
+<tr><td><li><kbd>readme.html</kbd></td> <td># a description of the Sample Depot including installation instructions</td>
+<tr><td><li><kbd>spec</kbd></td> <td># a directory containing Perforce archive files for a spec depot</td>
+<tr><td><li><kbd>system</kbd></td> <td># a directory containing Perforce archive files</td>
+</table>
+</ul>
+<p>
+The <kbd>PerforceSample</kbd> directory is referred to as your 
+<strong>P4ROOT</strong> location.
+</li>
+
+<p>
+<li>To create your sample Perforce database, restore the <kbd>checkpoint</kbd> file 
+by issuing the following command:<br>
+	<pre>
+	p4d -r C:\PerforceSample -jr C:\PerforceSample\checkpoint</pre>
+<br>On non-Windows environments, assuming you unzipped the <kbd>sampledepot.zip</kbd> file in your <kbd>/tmp</kbd> directory:<br>
+	<pre>
+	p4d -r /tmp/PerforceSample -jr /tmp/PerforceSample/checkpoint</pre>
+<p>
+The preceding step creates the Perforce database files in your 
+<kbd>C:\PerforceSample</kbd> (P4ROOT) directory. Your Perforce database is now installed.</li>
+
+<p>
+<li>
+To ensure that the database format is consistent with the Perforce 
+Server version that you are using, <kbd>cd</kbd> to your P4ROOT directory 
+and issue the following command:
+	<pre>
+	p4d -r . -xu</pre>
+</li>
+
+<p>
+<li>Start the Perforce Server. 
+
+<p>
+On Windows, start the Perforce Server by issuing the following command 
+at the command prompt:
+	<pre>
+	p4d -r C:\PerforceSample -p 1492</pre>
+
+When the server starts, it displays the message "Perforce Server starting...". 
+The Perforce Server is now started and listening for client connections on 
+port number 1492. 
+<p>
+NOTE: The DOS command shell window remains open and appears inactive 
+when the Perforce Server is running and listening for client connections. 
+For the purpose of simplicity, this installation example uses the command 
+shell start method. In most cases, however, Windows users start the 
+Perforce Server as a Windows Service and not use a DOS command shell. 
+<p>
+On Unix, assuming you unzipped the <kbd>sampledepot.zip</kbd> file in your
+<kbd>/tmp</kbd> directory, start your Perforce Server by issuing 
+the following command:
+	<pre>
+	p4d -r /tmp/PerforceSample -p 1492
+	</pre>
+</li>
+</ol>
+
+<p>
+You are now ready to use Perforce Sample Depot! You can inspect the contents 
+of the Sample Depot using either 
+<a href="http://www.perforce.com/perforce/products/p4v.html">P4V</a>, 
+a graphical user interface, or 
+<a href="http://www.perforce.com/perforce/products/p4.html">P4</a>, 
+the command line interface. 
+To verify your connection to the Sample Depot using <strong>P4</strong>,  
+open a new command shell instance and issue the following command:
+	<pre>
+	p4 -p 1492 info</pre>
+
+For help with Perforce command syntax and options, issue the following command:
+	<pre>
+	p4 -p 1492 help</pre>
+
+To stop the Perforce Server, issue the following command:
+	<pre>
+	p4 -p 1492 admin stop</pre>
+
+<p>
+You can connect as user <kbd>bruno</kbd> with no password, and create other accounts for use.
+
+<h3>For more information</h3> 
+<ul>
+<li>For basic instructions on using <strong>P4V</strong> to connect 
+a Perforce Server, see the <a href="http://www.perforce.com/perforce/demo/windows/windemo.html">
+Ten&nbsp;Minute&nbsp;Test&nbsp;Drive</a>, or consult the P4V Help menu.</li>
+
+<li>For additional information on setting up the Perforce Server or using 
+Perforce applications, see the main <a href="http://www.perforce.com/perforce/technical.html">
+documentation</a> page on our Web site. </li>
+
+<li>If you encounter any problems 
+installing or using the Sample Depot, please contact Perforce Support at 
+<strong>support&#64;&#112;er<!-- purposeful obfuscation -->&#102;or&#99;e.com</strong>.</li>
+</ul>
+
+<h2>Structure of the Sample Depot</h2>
+
+<table><tr>
+<td valign=top width="60%">
+<p>The Sample Depot is organized as follows:
+ </p>
+
+<p>
+<li><strong>Stream-based Software Development Projects</strong>
+<ul>
+  <kbd>//jam</kbd><br>
+  <kbd>//pb</kbd><br>
+  <kbd>//gwt-streams</kbd><br>
+</ul>
+<li><strong>Software Development Projects</strong>
+<ul>
+  <kbd>//depot/Jam</kbd> <i>(retired)</i><br>
+  <kbd>//depot/Jamgraph</kbd><br>
+  <kbd>//depot/Talkhouse</kbd><br>
+  <kbd>//gwt</kbd>
+</ul>
+<li><strong>Web Site Development</strong>
+<ul>
+  <kbd>//depot/www</kbd>
+</ul>
+<li><strong>Stream-based Document Management</strong>
+<ul>
+  <kbd>//HR</kbd>
+</ul>
+<li><strong>Miscellaneous Shared Files</strong><br>
+<ul>
+  <kbd>//depot/Misc</kbd><br>
+</ul>
+
+</td>
+
+<!-- first depot tree image -->
+<td align=left valign=top width="30%" cellspacing=10>
+<p>
+&nbsp;
+</td>
+</table>
+
+<p>
+<table><tr>
+<td valign=top width="60%">
+<p>
+<strong>Software&nbsp;Development&nbsp;Branching Methodology</strong><br>
+
+<p>
+The Sample Depot contains five software development projects:<br> 
+<strong>PB</strong>, <strong>Jam</strong>, <strong>Jamgraph</strong>, <strong>Talkhouse</strong>, and <strong>GWT</strong>.
+<p>
+Ongoing development work occurs in the <strong>MAIN</strong> or <strong>trunk</strong> branch under 
+each software project's name.<br>
+For example:
+<ul>
+  <kbd>//jam/main</kbd><br>
+  <kbd>//pb/main</kbd><br>
+  <kbd>//depot/Jamgraph/MAIN</kbd><br>
+  <kbd>//gwt-streams/main</kbd><br>
+</ul>
+or, in the case of the Talkhouse project, a <strong>main-dev</strong> branch:<br>
+<ul>
+  <kbd>//depot/Talkhouse/main-dev</kbd><br>
+</ul>
+Branches might be created for feature development. Such branches isolate 
+development work that might destabilize the MAIN branch.<br>
+For example:
+<ul>
+  <kbd>//jam/dev-2.3</kbd><br>
+  <kbd>//depot/Jamgraph/DEV</kbd><br>
+</ul>
+When code is ready for release, a release branch is created under the
+project name.<br> 
+For example:
+<ul>
+  <kbd>//jam/rel2.1</kbd><br>
+  <kbd>//jam/rel2.2</kbd><br>
+  <kbd>//jam/rel2.3</kbd><br>
+  <kbd>//gwt-streams/release2.0</kbd><br>
+  <kbd>//depot/Jamgraph/REL1.0</kbd><br>
+  <kbd>//depot/Talkhouse/rel1.0</kbd><br>
+  <kbd>//depot/Talkhouse/rel1.5</kbd><br>
+</ul>
+
+</td>
+
+<!-- second depot tree image -->
+<td align=left valign=top width="30%" cellspacing=10>
+&nbsp;
+</td>
+</table>
+
+<p>
+<table><tr>
+<td valign=top width="60%">
+<strong>Web Site Branching Methodology</strong>
+
+<p>
+For Web site development, the example workflow is as follows.
+<p>
+Web page authors edit files under:
+<ul>
+  <kbd>//depot/www/dev</kbd>
+</ul>
+Files are copied to a staging area for final review before going live:
+<ul>
+  <kbd>//depot/www/review</kbd>
+</ul>
+After passing review, files are copied to a live branch for publishing:
+<ul>
+  <kbd>//depot/www/live</kbd>
+</ul>
+For a discussion of various strategies for using Perforce for Web site 
+development, see <a href="http://www.perforce.com/perforce/wcm.html">
+Web&nbsp;Content&nbsp;Management&nbsp;with&nbsp;Perforce</a>.
+</td>
+
+<!-- third depot tree image -->
+<td align=left valign=top width="30%" cellspacing=10>
+<p>
+&nbsp;
+</td>
+</table>
+
+<p>
+<table><tr>
+<td valign=top width="60%">
+<strong>Document Management Methodology</strong>
+
+<p>
+For document management, the example workflow is as follows.
+<p>
+HR staff submits drafts under:
+<ul>
+  <kbd>//HR/draft</kbd>
+</ul>
+Files are copied to a review area before going live:
+<ul>
+  <kbd>//HR/review</kbd>
+</ul>
+After passing review by the HR manager, files are copied to a live stream for publishing:
+<ul>
+  <kbd>//HR/live</kbd>
+</ul>
+</td>
+
+<!-- third depot tree image -->
+<td align=left valign=top width="30%" cellspacing=10>
+<p>
+&nbsp;
+</td>
+</table>
+
+<p>
+<table><tr>
+<td valign=top width="60%">
+<strong>Miscellaneous Shared Files</strong>
+
+<p>
+Perforce can be used to store files that are shared between your
+development and corporate staff. For example, manuals and marketing 
+documents are stored in the following path:<br>
+<ul>
+  <kbd>//depot/Misc</kbd>
+</ul>
+Word documents, Excel spread sheets, and Powerpoint slides can be
+managed&nbsp; using the 
+<a href="http://www.perforce.com/perforce/downloads/ntx86.html">
+Perforce&nbsp;Plug-in&nbsp;for&nbsp;Microsoft&nbsp;Office</a> (P4OFC) 
+available from our Web site.<br>
+
+</td>
+
+<!-- fourth depot tree image -->
+<td align=left valign=top width="30%" cellspacing=10>
+<p>
+&nbsp;
+</td>
+</table>
+
+<p>
+&nbsp;
+
+<hr style="width: 100%; height: 1px;">
+
+<p>
+
+<!-- Content ends here -->
+
+  </body>
+</html>

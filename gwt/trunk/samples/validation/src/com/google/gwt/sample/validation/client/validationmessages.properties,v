@@ -1,0 +1,23 @@
+head     1.9469;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.9469
+date     2011.05.16.13.39.38;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.9469
+log
+@@
+text
+@# Put custom messages here.
+custom.name.size.message=Name must be at least {min} characters long.
+@

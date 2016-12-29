@@ -1,0 +1,39 @@
+head     1.12027;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.12027
+date     2011.11.02.14.58.59;  author p4;  state Exp;
+branches ;
+next     1.12021;
+
+1.12021
+date     2011.11.02.14.58.58;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.12027
+log
+@@
+text
+@<module>
+	<inherits name='com.google.gwt.user.User'/>
+	<entry-point class='com.google.gwt.sample.dynatable.client.DynaTable'/>
+	<servlet path='/calendar' class='com.google.gwt.sample.dynatable.server.SchoolCalendarServiceImpl'/>
+</module>
+
+@
+
+
+1.12021
+log
+@@
+text
+@@

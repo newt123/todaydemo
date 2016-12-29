@@ -1,0 +1,93 @@
+head     1.12062;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.12062
+date     2011.11.02.17.16.52;  author p4;  state Exp;
+branches ;
+next     1.12060;
+
+1.12060
+date     2011.11.02.17.13.07;  author p4;  state Exp;
+branches ;
+next     1.12059;
+
+1.12059
+date     2011.11.02.17.11.20;  author p4;  state Exp;
+branches ;
+next     1.12032;
+
+1.12032
+date     2011.11.02.14.59.00;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.12062
+log
+@@
+text
+@<!--                                                                        -->
+<!-- Copyright 2007 Google Inc.                                             -->
+<!-- Licensed under the Apache License, Version 2.0 (the "License"); you    -->
+<!-- may not use this file except in compliance with the License. You may   -->
+<!-- may obtain a copy of the License at                                    -->
+<!--                                                                        -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0                             -->
+<!--                                                                        -->
+<!-- Unless required by applicable law or agreed to in writing, software    -->
+<!-- distributed under the License is distributed on an "AS IS" BASIS,      -->
+<!-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or        -->
+<!-- implied. License for the specific language governing permissions and   -->
+<!-- limitations under the License.                                         -->
+
+<module rename-to="dynatable">
+	<inherits name='com.google.gwt.user.User' />
+	<entry-point class='com.google.gwt.sample.dynatable.client.DynaTable' />
+	<servlet path='/calendar' class='com.google.gwt.sample.dynatable.server.SchoolCalendarServiceImpl'/>
+</module>
+@
+
+
+1.12060
+log
+@@
+text
+@d18 1
+a18 4
+	<!--
+		Re-enable this when we have web.xml validation.
+		<servlet path='/calendar' class='com.google.gwt.sample.dynatable.server.SchoolCalendarServiceImpl'/>
+	-->
+@
+
+
+1.12059
+log
+@@
+text
+@d16 6
+a21 3
+	<inherits name='com.google.gwt.user.User'/>
+	<entry-point class='com.google.gwt.sample.dynatable.client.DynaTable'/>
+	<servlet path='/calendar' class='com.google.gwt.sample.dynatable.server.SchoolCalendarServiceImpl'/>
+a22 2
+
+
+@
+
+
+1.12032
+log
+@@
+text
+@d15 1
+a15 1
+<module>
+@

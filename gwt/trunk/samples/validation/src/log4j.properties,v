@@ -1,0 +1,25 @@
+head     1.9469;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.9469
+date     2011.05.16.13.39.39;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.9469
+log
+@@
+text
+@#log4j configuration, needed by hibernate validator.
+log4j.rootLogger=INFO, stdout
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout@
